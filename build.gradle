@@ -1,14 +1,22 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 
 buildscript {
-    ext.library_version = '0.0.9'
+    ext.library_version = '0.1.0'
     repositories {
-        jcenter()
+//        maven {
+//            url 'file:\\C:\\Android\\gradle\\m2repository'
+//        }
+        mavenCentral()
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
         google()
+        jcenter()
+
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.0.0'
-        classpath 'com.novoda:bintray-release:0.5.0'
+        classpath 'com.novoda:bintray-release:0.9.1'
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
     }
@@ -16,14 +24,16 @@ buildscript {
 
 allprojects {
     repositories {
-        jcenter()
+        mavenCentral()
         google()
-    }
-    tasks.withType(Javadoc) {
-        options{
-            encoding "UTF-8"
-            charSet 'UTF-8'
-            links "https://docs.oracle.com/javase/7/docs/api"
+        jcenter()
+        maven { url "https://jitpack.io" }
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
+        tasks.withType(Javadoc) {
+            options.addStringOption('Xdoclint:none', '-quiet')//忽略文档注释错误
+            options.addStringOption('encoding', 'UTF-8')
         }
     }
 }
