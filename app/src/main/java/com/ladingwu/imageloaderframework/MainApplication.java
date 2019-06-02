@@ -18,8 +18,8 @@ public class MainApplication extends Application {
     public void onCreate() {
         super.onCreate();
         ImageLoaderConfig config = new ImageLoaderConfig
-                .Builder(LoaderEnum.FRESCO,new FrescoImageLoader())
-//                        .addImageLodaer(LoaderEnum.GLIDE,new GlideImageLocader())
+//                .Builder(LoaderEnum.FRESCO,new FrescoImageLoader())
+                        .Builder(LoaderEnum.GLIDE,new GlideImageLocader())
                 .maxMemory(40*1024*1024L)  // 单位为Byte
                 .build();
         ImageLoaderManager.getInstance().init(this,config);

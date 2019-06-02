@@ -37,15 +37,15 @@ dependencies {
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    compile 'com.android.support:appcompat-v7:27.0.2'
-    compile 'com.android.support:support-v4:27.0.2'
+    compile 'com.android.support:appcompat-v7:27.1.1'
+    compile 'com.android.support:support-v4:27.1.1'
     testCompile 'junit:junit:4.12'
 //    testImplementation 'org.robolectric:robolectric:3.6.1'
-//    implementation project(':imageloader-framework')
-//    implementation project(':glide')
-//    implementation project(':fresco')
-    compile "com.ladingwu.library:fresco:$library_version"
-    compile "com.ladingwu.library:glide:$library_version"
-    compile "com.ladingwu.library:imageloader-framework:$library_version"
-    implementation 'com.android.support:recyclerview-v7:27.1.0'
+    implementation project(':imageloader-framework')
+    implementation project(':glide')
+    implementation project(':fresco')
+//    compile "com.ladingwu.library:fresco:$library_version"
+//    compile "com.ladingwu.library:glide:$library_version"
+//    compile "com.ladingwu.library:imageloader-framework:$library_version"
+    implementation 'com.android.support:recyclerview-v7:27.1.1'
 }
