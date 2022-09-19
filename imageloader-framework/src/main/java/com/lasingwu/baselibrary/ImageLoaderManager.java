@@ -42,6 +42,16 @@ public class ImageLoaderManager {
      *    请自行new一个Imageview传入即可
      *  内部只需要获取Context
      */
+    public static ImageLoaderOptions.Builder getDefaultBuilder(@NonNull View container, @NonNull String url){
+        ImageLoaderOptions.Builder builder =
+                new ImageLoaderOptions.Builder(container, url).isCrossFade(true);
+        return builder;
+    }
+    /*
+     *   可创建默认的Options设置，假如不需要使用ImageView ，
+     *    请自行new一个Imageview传入即可
+     *  内部只需要获取Context
+     */
     public static ImageLoaderOptions getHolderOptions(@NonNull View container,
                                                           @NonNull String url){
         ImageLoaderOptions.Builder builder =
@@ -53,6 +63,23 @@ public class ImageLoaderManager {
             builder.error(errorDrawable);
         }
         return builder.build();
+    }
+    /*
+     *   可创建默认的Options设置，假如不需要使用ImageView ，
+     *    请自行new一个Imageview传入即可
+     *  内部只需要获取Context
+     */
+    public static ImageLoaderOptions.Builder getHolderBuilder(@NonNull View container,
+                                                              @NonNull String url){
+        ImageLoaderOptions.Builder builder =
+                new ImageLoaderOptions.Builder(container, url).isCrossFade(true);
+        if (holderDrawable!=-1){
+            builder.placeholder(holderDrawable);
+        }
+        if (errorDrawable!=-1){
+            builder.error(errorDrawable);
+        }
+        return builder;
     }
 
     public void showImage(@NonNull ImageLoaderOptions options) {
