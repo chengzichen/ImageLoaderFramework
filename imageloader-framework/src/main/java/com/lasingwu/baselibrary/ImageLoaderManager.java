@@ -3,6 +3,7 @@ package com.lasingwu.baselibrary;
 import android.content.Context;
 import android.view.View;
 
+import androidx.annotation.DrawableRes;
 import androidx.annotation.NonNull;
 
 import java.util.HashMap;
@@ -18,6 +19,8 @@ public class ImageLoaderManager {
     private  IImageLoaderstrategy loaderstrategy;
     private HashMap<LoaderEnum,IImageLoaderstrategy> imageloaderMap=new HashMap<>();
     private LoaderEnum curLoader = null;
+    private static int holderDrawable=-1;  // 设置展位图
+    private static int errorDrawable=-1;  //是否展示加载错误的图片
     private ImageLoaderManager(){
     }
     public static ImageLoaderManager getInstance(){
@@ -30,7 +33,26 @@ public class ImageLoaderManager {
      *  内部只需要获取Context
      */
     public static ImageLoaderOptions getDefaultOptions(@NonNull View container, @NonNull String url){
-        return new ImageLoaderOptions.Builder(container,url).isCrossFade(true).build();
+        ImageLoaderOptions.Builder builder =
+                new ImageLoaderOptions.Builder(container, url).isCrossFade(true);
+        return builder.build();
+    }
+    /*
+     *   可创建默认的Options设置，假如不需要使用ImageView ，
+     *    请自行new一个Imageview传入即可
+     *  内部只需要获取Context
+     */
+    public static ImageLoaderOptions getHolderOptions(@NonNull View container,
+                                                          @NonNull String url){
+        ImageLoaderOptions.Builder builder =
+                new ImageLoaderOptions.Builder(container, url).isCrossFade(true);
+        if (holderDrawable!=-1){
+            builder.placeholder(holderDrawable);
+        }
+        if (errorDrawable!=-1){
+            builder.error(errorDrawable);
+        }
+        return builder.build();
     }
 
     public void showImage(@NonNull ImageLoaderOptions options) {
@@ -81,13 +103,16 @@ public class ImageLoaderManager {
                 curLoader=entry.getKey();
             }
         }
-
-
-//        loaderstrategy=new GlideImageLocader();
-//        loaderstrategy.init(context);
     }
     private IImageLoaderstrategy getLoaderstrategy(LoaderEnum loaderEnum){
         return imageloaderMap.get(loaderEnum);
     }
 
+    public void setHolderDrawable(@DrawableRes int holderDrawable) {
+        this.holderDrawable = holderDrawable;
+    }
+
+    public void setErrorDrawable(@DrawableRes int errorDrawable) {
+        this.errorDrawable = errorDrawable;
+    }
 }
