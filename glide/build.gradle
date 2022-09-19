@@ -37,12 +37,12 @@ android {
 //}
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-    provided "com.android.support:support-annotations:27.1.1"
+    compileOnly "androidx.appcompat:appcompat:1.5.1"
     testImplementation 'junit:junit:4.12'
-    compile 'com.github.bumptech.glide:glide:4.9.0'
+    implementation 'com.github.bumptech.glide:glide:4.9.0'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.9.0'
     implementation "com.github.bumptech.glide:okhttp3-integration:4.9.0"
-    provided project(':imageloader-framework')
+    compileOnly project(':imageloader-framework')
 //    provided 'com.dhc.lib:imageloader-framework:0.1.0'
 
 }

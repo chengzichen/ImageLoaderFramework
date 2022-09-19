@@ -1,7 +1,6 @@
 package com.lasingwu.baselibrary;
 
 import java.util.HashMap;
-import java.util.Map;
 
 /**
  * Created by wuzhao on 2018/2/23.

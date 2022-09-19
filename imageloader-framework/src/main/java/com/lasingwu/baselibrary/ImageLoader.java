@@ -1,7 +1,8 @@
 package com.lasingwu.baselibrary;
 
-import android.support.annotation.NonNull;
 import android.view.View;
+
+import androidx.annotation.NonNull;
 
 public class ImageLoader {
     public static ImageLoaderOptions.Builder createImageOptions(@NonNull View v, @NonNull String url){
