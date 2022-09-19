@@ -1,6 +1,7 @@
 package com.ladingwu.imageloaderframework;
 
-import android.support.annotation.NonNull;
+
+import androidx.annotation.NonNull;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,7 +19,7 @@ public class PhotoBean {
         return bean;
     }
 
-    public static List<PhotoBean> createInstances(@NonNull  List<String> urls){
+    public static List<PhotoBean> createInstances(@NonNull List<String> urls){
         List<PhotoBean> list =new ArrayList<>();
         for (String url : urls) {
             PhotoBean bean =new PhotoBean();
