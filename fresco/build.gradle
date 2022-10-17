@@ -43,11 +43,11 @@ dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     compileOnly  "androidx.appcompat:appcompat:1.1.0"
     testImplementation 'junit:junit:4.12'
-    implementation 'com.facebook.fresco:fresco:1.8.0'
-    implementation 'com.facebook.fresco:webpsupport:1.8.0'
+    implementation 'com.facebook.fresco:fresco:2.5.0'
+    implementation 'com.facebook.fresco:webpsupport:2.5.0'
 //    compile 'com.facebook.fresco:animated-base-support:1.3.0'
-    implementation 'com.facebook.fresco:animated-webp:1.8.0'
-    implementation 'com.facebook.fresco:animated-gif:1.8.0'
+    implementation 'com.facebook.fresco:animated-webp:2.5.0'
+    implementation 'com.facebook.fresco:animated-gif:2.5.0'
     compileOnly project(':imageloader-framework')
 //    provided "com.dhc.lib:imageloader-framework:$library_version"
 //    provided 'com.dhc.lib:imageloader-framework:0.1.0'
